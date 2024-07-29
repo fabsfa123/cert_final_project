@@ -15,10 +15,13 @@ bla bla bla
 
 
 ### Usage
-```bash
+
 conda activate project2
 
-```bash
+### vaffa
+
 jupyter notebook
+
+### nclo
 
 open MyProject
