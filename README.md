@@ -15,7 +15,7 @@ bla bla bla
 
 
 ### Usage
-
+'''bash
 conda activate project2
 jupyter notebook
 open MyProject
