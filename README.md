@@ -15,6 +15,13 @@ bla bla bla
 
 
 ### Usage
+
+!git clone https://github.com/fabsfa123/cert_final_project.git
+
+!git clone https://fabsfa123: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@github.com/fabsfa123/cert_final_project.git
+
+
+
 conda activate project2   
 jupyter notebook   
 open MyProject   
