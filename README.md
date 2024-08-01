@@ -16,9 +16,15 @@ bla bla bla
 
 ### Usage
 
-!git clone https://github.com/fabsfa123/cert_final_project.git
 
 !git clone https://fabsfa123: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@github.com/fabsfa123/cert_final_project.git
+
+
+!pip install -q condacolab
+import condacolab
+condacolab.install()
+!conda env create -f /content/cert_final_project/project2.yml
+
 
 
 
