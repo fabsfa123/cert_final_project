@@ -49,7 +49,6 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 import talib
 
 import itertools
-import winsound
 
 
 class Instrument(object):
@@ -161,6 +160,24 @@ class Instrument(object):
 
         # Display the plot
         fig.show()
+
+    
+    def plot_daily_close2(self, second_instrument = None):
+        """
+        plot daily time series of close
+        
+        Inputs:
+        -------
+        
+        second_instrument: Instrument Class
+            use to add a new close line to the same plot
+        
+        """
+        
+        series1 = self.data.Close.resample('1d').last()
+
+        series1.plot()
+
     
     def create_descriptive_plots(self,d=None):
         """
