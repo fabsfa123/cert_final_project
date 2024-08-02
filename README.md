@@ -42,7 +42,7 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 -	**Input Data**
     -	*ES_5min_continuous_adjusted.txt*: historical S&P500 futures data 
     -	*VX_full_5min_continuous_Unadjusted*: historical VIX futures data
--	**Stored Outputs**: if the user wants to analyse the output without rerunning all the cross section methods, the files below can be used by commenting the relevant lines. Otherwise, the model can be ran entirely, but it will take longer
+-	**Stored Outputs**: the files below are the output of previously ran and stored cross validations and are imported in the script if the variable *rerun_cross_validations* is set to False. This is to reduce the run time of the Notebook. However, cross-validations can be rerun if *rerun_cross_validations* is set to True. The variable is specified in one cell at the beginning of the Jupyter Notebook *my_project.ipynb*
     - *dnn_adam*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_adam 
     - *dnn_adam.csv*: results of dnn_adam cross sectional analysis
     - *dnn_sgd*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd

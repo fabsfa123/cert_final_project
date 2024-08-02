@@ -58,12 +58,12 @@ class Instrument(object):
     Attributes:
             Inputs:
                 file_name: str
-                    full name of the txt file (including path) containing OHLCV time series to be backtested including extension
+                    full name of the txt file (including path) containing OHLCV time series to be back-tested including extension
                     (.txt extension is required) 
                 ticker: str
                     ticker's name
                 description: str
-                    description of intrument
+                    description of instrument
             Data:
                 data: DataFrame
                     raw OHLCV data
@@ -87,7 +87,7 @@ class Instrument(object):
     
     def set_frequency(self,f):
         """
-        Given a dataframe containing OHLCV intraday price data, it returns a Dataframe with a specified 
+        Given a DataFrame containing OHLCV intraday price data, it returns a Dataframe with a specified 
         frequency. 
         -------------------------------------------------------------------------------------
         -------------------------------------------------------------------------------------
@@ -195,7 +195,7 @@ class Instrument(object):
 class StrategyData(Instrument):
     '''
     Class containing methods and data containing all necessary data used for ML calibration, application and 
-    strategy backtesting
+    strategy back-testing
     
     Attributes:
             inputs:
@@ -204,10 +204,10 @@ class StrategyData(Instrument):
             data_name: str
                 data description
             inst: Intrument object
-                instrument to be backtested
+                instrument to be back-tested
             freq: str
                 frequency of data
-            vix: Intrument object
+            vix: Instrument object
                 object containing vix data - if None, vix is not added as a predictor
             
             data:
@@ -221,7 +221,7 @@ class StrategyData(Instrument):
             labels_data: DataFrame
                 cleansed data with Labels
             labels_train, labels_test, features_train,features_test: DataFrames
-                labels and features split in training and test. fetures are standardised
+                labels and features split in training and test. features are standardised
                 
         Methods:
             fill_OHLCV_missing_data: 
@@ -229,7 +229,7 @@ class StrategyData(Instrument):
             add_vix:
                 merge ViX OHLCV data with main instrument to be predicted
             set_frequency:
-                resample dataframe with one or two OHLCV instruments 
+                resample DataFrame with one or two OHLCV instruments 
             number_of_bars_per_day:
                 returns max number of OHLCV bars per day in a DataFrame
             create_features:
@@ -302,15 +302,15 @@ class StrategyData(Instrument):
         this method overrides instrument class method to handle having two OHLCV instruments merged in the 
         same DataFrame
         
-        Given a dataframe containing OHLCV intraday price data, it returns a Dataframe with a specified 
-        frequency. It is possible to remove bars outside a specific time range and exlude weekends 
+        Given a DataFrame containing OHLCV intraday price data, it returns a DataFrame with a specified 
+        frequency. It is possible to remove bars outside a specific time range and exclude weekends 
         -------------------------------------------------------------------------------------
          -------------------------------------------------------------------------------------
          
         Inputs:
         -------
-        d: dataframe
-            OHLCV dataframe with 2 intruments
+        d: DataFrame
+            OHLCV dataframe with 2 instruments
         start_time: string
             start of official trading session - %H:%M:%S" format - 24 hour clock- (default="00:00:00") 
         end_time: string
@@ -360,7 +360,7 @@ class StrategyData(Instrument):
             ticker: str 
                 ticker name
             timeperiod: int
-                lenght of rolling window
+                length of rolling window
         '''
         
         df = pn.DataFrame(index=data.index)
@@ -374,18 +374,18 @@ class StrategyData(Instrument):
     
     def create_features(self,n=[2,5,10,25,50,100,250]):
         """
-        Given a dataframe with OHLCV price data, it returns a Dataframe including multiple
-        features for intraday ML forecasting
+        Given a DataFrame with OHLCV price data, it returns a Dataframe including multiple
+        features for intra day ML forecasting
         -------------------------------------------------------------------------------------
         -------------------------------------------------------------------------------------
         
         Inputs:
         -------
         d: DataFrame
-            dataframe with a DateTime index containing OHLVC data for one or multiple instruments 
+            DataFrame with a DateTime index containing OHLVC data for one or multiple instruments 
             labelled as "Close_"&ticker
         n:  list of ints
-            lenght/s of rolling window/s
+            length/s of rolling window/s
         """
         
         d = self.cleansed_data
@@ -439,7 +439,7 @@ class StrategyData(Instrument):
                     out[f"natr_{str(l)}_{t}"] = getattr(talib, 'NATR')(d['High_'+t], d['Low_'+t], d['Close_'+t],timeperiod=l) # normalised ATR
 
         
-        #Seasonality and microseasonality    
+        #Seasonality and micro seasonality    
         out['DayOfWeek'] = d.index.day_of_week
         if self.freq is not '1d': 
             out['Hour']  = d.index.hour
@@ -450,7 +450,7 @@ class StrategyData(Instrument):
 
     def create_label(self,target_up=0.25,target_down=-0.25,n=1):
         """
-        Given a dataframe d with OHLCV price data, it returns a timeseries with the following labels:
+        Given a DataFrame d with OHLCV price data, it returns a time series with the following labels:
             long_signal:
                 1: The Close of the next n bars is greater or equal than the next bar Open + target_up 
                 0: Otherwise
@@ -497,9 +497,9 @@ class StrategyData(Instrument):
         Inputs:
         -------
         train: DataFrame
-            dataframe containin the ML predictor
-        test: Dataframe  
-            dataframe with the same columns of train used to test the prediction
+            DataFrame containing the ML predictor
+        test: DataFrame  
+            DataFrame with the same columns of train used to test the prediction
         clip: float or None
             if not None, standardised values are clipped at +- the clip value
             
@@ -628,15 +628,15 @@ class Predictor(object):
             early_monitor: str
                 performance metric for early stopping
             strategy_data: strategy data class
-                cleansed data for model calibration and backtesting
-            selected_features: list containing column names to be used for model calibration.If None, all the fetures in the
+                cleansed data for model calibration and back-testing
+            selected_features: list containing column names to be used for model calibration.If None, all the features in the
                 strategy data class are used
                 
                 
             Data:
             ----------------------------------
             label_bars_ahead: int 
-                number of bars ahead used to contruct label
+                number of bars ahead used to construct label
             boruta_selector: obj
                 calibrated boruta object
             selected_features: list 
