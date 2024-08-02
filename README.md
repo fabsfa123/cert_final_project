@@ -44,7 +44,7 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 -	**Input Data**
     -	*ES_5min_continuous_adjusted.txt*: historical S&P500 futures data 
     -	*VX_full_5min_continuous_Unadjusted*: historical VIX futures data
--	**Stored Outputs**: if the user wants to analyse the output without rerunning all the cross section methods, the files below can be used. Otherwise, the model can be ran entirely by uncommenting the specific lines in the jupyter notebook
+-	**Stored Outputs**: if the user wants to analyse the output without rerunning all the cross section methods, the files below can be used by commenting the relevant lines. Otherwise, the model can be ran entirely, but it will take longer
     - *dnn_adam*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_adam 
     - *dnn_adam.csv*: results of dnn_adam cross sectional analysis
     - *dnn_sgd*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd
