@@ -23,7 +23,6 @@ bla bla bla
 !pip install -q condacolab
 import condacolab
 condacolab.install()
-!conda env create -f /content/cert_final_project/project2.yml
 
 
 
