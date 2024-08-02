@@ -11,9 +11,8 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 
 
 
- - 1. Open the Jupyter Notebook on Google Colab by clicking on the link below:
-    ```bash
-    https://github.com/fabsfa123/cert_final_project/blob/5a1998499abf55db23f20a1b6ab37f1436cd2076/my_project.ipynb
+ - 1. Open the Jupyter Notebook on Google Colab by clicking on the link:
+        https://github.com/fabsfa123/cert_final_project/blob/5a1998499abf55db23f20a1b6ab37f1436cd2076/my_project.ipynb
  - 2. Clone the repository 
     ```bash
     git clone https://fabsfa123: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@github.com/fabsfa123/cert_final_project.git
