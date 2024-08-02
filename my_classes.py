@@ -1605,9 +1605,7 @@ class cross_validation(object):
                                                                         / data.labels_test['short_label'].size)
                 
                 self.input_output_df.loc[combo_id,'gross_IR'] = backtest.gross_perf_metrics.loc['short']['IR']
-                self.input_output_df.loc[combo_id,'gross_IR_baseline'] = backtest.gross_perf_metrics.loc['baseline_short']['IR']
                 self.input_output_df.loc[combo_id,'net_IR'] = backtest.net_perf_metrics.loc['short']['IR']
-                self.input_output_df.loc[combo_id,'net_IR_baseline'] = backtest.net_perf_metrics.loc['baseline_short']['IR']
         
         def run(self,combo_id,es,vx,show_backtest_charts=False,model_fit_stats=False, save_output=True, 
                 defined_features = None):

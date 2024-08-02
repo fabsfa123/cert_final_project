@@ -11,21 +11,20 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 
 
 
- - 1. Open the Jupyter Notebook on Google Colab by clicking on the link:
-        https://github.com/fabsfa123/cert_final_project/blob/5a1998499abf55db23f20a1b6ab37f1436cd2076/my_project.ipynb
- - 2. Clone the repository 
+- 1. Click on https://githubtocolab.com/fabsfa123/cert_final_project/blob/b32bdd0a4f0b537ba5795606fa5719d68ffdcfac/my_project.ipynb
+- 2. Clone the repository 
     ```bash
-    git clone https://fabsfa123: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@github.com/fabsfa123/cert_final_project.git
- - 3. Install condacolab and ta-lib
+    !git clone https://fabsfa123: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@github.com/fabsfa123/cert_final_project.git
+- 3. Install condacolab and ta-lib
     ```bash
     !pip install -q condacolab
     import condacolab
     condacolab.install()
-    !conda install -c conda-forge ta-lib lime
-- 4. pip install tensorflow (ol;d version), boruta, plotly, and lime 
+    !conda install -c conda-forge ta-lib
+- 4. pip install tensorflow (old version), boruta, plotly, and lime 
     ```bash
     !pip install tensorflow==2.12 boruta plotly lime
-- 5. you will be promtled to restart the kernel. proceed
+- 5. if prompted to restart the kernel. proceed
 - 6. run the jupyter notebook
 
 
