@@ -134,49 +134,15 @@ class Instrument(object):
         """
         
         series1 = self.data.Close.resample('1d').last()
-        
-        fig = make_subplots(specs=[[{"secondary_y": True}]])
-        
-        trace1 = go.Scatter(x=series1.index, y=series1, mode='lines', name=self.ticker, yaxis='y')
-        fig.add_trace(trace1)
-        
-        # Add the second line to the secondary y-axis
+        _title =  'Historical Quotes' 
+        _yaxis_title= self.ticker
+
         if second_instrument is not None:
-            series2 = second_instrument.data.Close.resample('1d').last()
-            trace2 = go.Scatter(x=series2.index, y=series2, mode='lines', name=second_instrument.ticker, yaxis='y2')
-            fig.add_trace(trace2)
-            fig.update_layout(
-                title = 'Historical Quotes',
-                xaxis_title='Date',
-                yaxis_title= self.ticker,
-                yaxis2_title= second_instrument.ticker
-                )
+            df = pn.DataFrame(index= series1.index,data=series1, columns=self.ticker)
+            df[second_instrument.ticker] = second_instrument.data.Close.resample('1d').last()
+            df.plot(secondary_ybool = second_instrument.ticker, figsize=(18, 8),title=_title)
         else:
-            fig.update_layout(
-                title = self.description,
-                xaxis_title='Date',
-                yaxis_title= self.ticker,
-                )
-
-        # Display the plot
-        fig.show()
-
-    
-    def plot_daily_close2(self, second_instrument = None):
-        """
-        plot daily time series of close
-        
-        Inputs:
-        -------
-        
-        second_instrument: Instrument Class
-            use to add a new close line to the same plot
-        
-        """
-        
-        series1 = self.data.Close.resample('1d').last()
-
-        series1.plot()
+            series1.plot(figsize=(18, 8),ylabel=_yaxis_title,title=_title)
 
     
     def create_descriptive_plots(self,d=None):
