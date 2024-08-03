@@ -622,7 +622,7 @@ class Predictor(object):
             optimiser: str
                 'adam' or 'sgd'
             ephocs: int
-                numerber of ephocs
+                number of ephocs
             long: bool
                 if true, it predicts long label - otherwise the short label is used
             early_monitor: str
@@ -654,7 +654,7 @@ class Predictor(object):
             set_seeds:
                 set seeds
             set_early_stopping:
-                set early stopping settings of calibration alghoritm
+                set early stopping settings of calibration algorithm
             choose_label:
                 returns long or short label for ML fit 
             plot_metrics_history:
@@ -750,7 +750,7 @@ class Predictor(object):
             inputs:
                 strategy_data: strategy_data class
                 long:bool
-                    if true , the long label is returned - false for short
+                    if true, the long label is returned - false for short
             '''
             if long == True:
                 label = strategy_data.labels_train['long_label']
@@ -954,7 +954,7 @@ class DNN(Predictor):
         hu: int
             number of hidden units
         dropout: bool
-            if trueapply random dropout of nodes
+            if true, apply random dropout of nodes
         rate: float
             dropout rate if dropout is true
         regularize: bool
@@ -971,7 +971,7 @@ class DNN(Predictor):
         Data:
         ----------------------------------------
         model: sequential object
-            tensor flow mdel
+            tensor flow model
         results: 
             model results
         train_predict:
@@ -1101,7 +1101,7 @@ class DRNN(Predictor):
         Data:
         ----------------------------------------
         model: sequential object
-            tensor flow mdel
+            tensor flow model
         results: 
             model results
         train_predict:
@@ -1230,17 +1230,17 @@ class Strategy(object):
         Inputs
         --------------------
         strategy_data: strategy_data class 
-            cleansed data for ML prediction and backtesting
+            cleansed data for ML prediction and back-testing
         predictor_long: predictor class
             calibrated long ML
         predictor_short
             calibrated short ML object
         p_thr: float
-            probability threshould for long and short signal
+            probability threshold for long and short signal
         max_w:float
             maximum long and short weight (ex. if equal to 1 then -1<=w<=1)
         point_value: float
-            point value of instrument to be backtested
+            point value of instrument to be back-tested
         commissions: float
             commissions per trade
         slippage: float
@@ -1250,7 +1250,7 @@ class Strategy(object):
         Data:
         ----------------------------------------
         w: DataFrame
-            strategy weights ('long','short','long_short','benchmark_long','benchmark_short')
+            strategy weights ('long','short','long_short','benchmark_long')
         gross_perf_metrics: Dataframe
         gross performance metrics: Dataframe
         gross_cumulative_equity: Dataframe
@@ -1331,7 +1331,7 @@ class Strategy(object):
     
     def calculate_perf_metrics(self,p,num_bars_per_day):
         '''
-        It returns performance metrics (average return, average standard deviation, Informatio Ratio) 
+        It returns performance metrics (average return, average standard deviation, Information Ratio) 
         from an array of strategy returns
         
         Inputs:
@@ -1357,7 +1357,7 @@ class Strategy(object):
             c: Series
                 Close time series of the instrument that is traded 
             w: Dataframw
-                weights a verious strategies
+                weights a various strategies
             initial_capital: float
             point_value: float
                 value of 1 unit of the traded instrument
@@ -1432,10 +1432,9 @@ class cross_validation(object):
         Methods:
             initialise_input_df
             add_inputs_combo
-                add combination of inputs to inputs dataframe
+                add combination of inputs to inputs_dataframe
             run
 
-            
             '''
         def __init__(self):
             self.initialise_input_df()
@@ -1478,12 +1477,12 @@ class cross_validation(object):
                     optimiser name
                 lr: float
                     lr parameter for optimiser
-                momentum: foat
+                momentum: float
                     momentum for SGD optimiser
                 nesterow: bool 
                     parameter for SGD optimiser
                 hl: int
-                    hiddent layers
+                    hidden layers
                 hu: int
                     hidden units
                 dropout: bool
@@ -1493,7 +1492,7 @@ class cross_validation(object):
                 regularize: bool
                     regularise units
                 reg_l1:
-                    l1 regularisation paramater
+                    l1 regularisation parameter
                 lags: int
                     number of lags for RDNN
                 layer:str
@@ -1539,10 +1538,10 @@ class cross_validation(object):
                                 hu=[16], dropout = [True], rate = [0.3],regularize = [True], reg_l1 = [0.0005] ,
                                 lags = [5],layer = ['SimpleRNN']):
             '''
-            add multiple combinations of inputs to the input_output_df dataframe. the run)multiple method will iterate across
+            add multiple combinations of inputs to the input_output_df dataframe. the run_multiple method will iterate across
             the rows of the inputs dataframe to calibrate and test all of them.
             
-            multiple values can be added to each field as list elements. a cartesian produc across all lists of inputs is
+            multiple values can be added to each field as list elements. A cartesian product across all lists of inputs is
             done to generate all the combinations
 
             '''
@@ -1743,7 +1742,7 @@ class cross_validation(object):
                         defined_features_long = None, defined_features_short = None,
                         model_fit_stats=True):
             '''
-            run long and short ML model and then perform backtest
+            run long and short ML model and then perform back-test
             
             Inputs:
                 combo_id_long:int
@@ -1755,7 +1754,7 @@ class cross_validation(object):
                 vx: instrument class
                     vix data
                 show_backtest_charts: boolean
-                    show performance statistics of backtest
+                    show performance statistics of back-test
                 defined_features_long:list
                     use user defined features for long model
                 defined_features_short:list
