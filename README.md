@@ -32,23 +32,23 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 
 -	**my_project.ipynb** is the Jupyter Notebook that executes and present the essay. This is in essence the main file of the project
 -	**my_classes** is a .py file containing all the classes that I created to support the analysis of the project.  The classes are documented and can be listed as:
--	**Instrument**:  instrument's historical data and characteristics and charting methods
--	**StrategyData**: methods and data to cleans data for model calibration and back-testing. Inherits from Instrument. 
-    -   *Predictor*: neural networks base class
-    -	*DNN*: methods and data related to DNN. It inherits from Predictor
-    -	*DRNN*: methods and data related to DRNN. It inherits from Predictor
-    -	*Strategy*: vectorised back-testing
-    -	*cross_validation*: various cross validation
+    -	**Instrument**:  instrument's historical data and characteristics and charting methods
+    -	**StrategyData**: methods and data to cleans data for model calibration and back-testing. Inherits from Instrument. 
+    -   **Predictor**: neural networks base class
+    -	**DNN**: methods and data related to DNN. It inherits from Predictor
+    -	**DRNN**: methods and data related to DRNN. It inherits from Predictor
+    -	**Strategy**: vectorised back-testing
+    -	**cross_validation**: various cross validation
 -	**Input Data**
     -	*ES_5min_continuous_adjusted.txt*: historical S&P500 futures data 
     -	*VX_full_5min_continuous_Unadjusted*: historical VIX futures data
 -	**Stored Outputs**: the files below are the output of previously ran and stored cross validations and are imported in the script if the variable *rerun_cross_validations* is set to False. This is to reduce the run time of the Notebook. However, cross-validations can be rerun if *rerun_cross_validations* is set to True. The variable is specified in one cell at the beginning of the Jupyter Notebook *my_project.ipynb*
-    - *dnn_adam*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_adam 
-    - *dnn_adam.csv*: results of dnn_adam cross sectional analysis
-    - *dnn_sgd*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd
-    - *dnn_sgd.csv*: results of dnn_sgd cross sectional analysis
-    - *drnnv2*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd
-    - *drnnv2.csv*: results of drnn cross sectional analysis
-    - *log_rets_drnn.csv*: returns of the out of sample forward testing trading strategy based on drnn prediction
-    - *rolling_dnn_adam_rets.csv*: returns of the out of sample forward testing trading strategy based on dnn adam prediction
-    - *rolling_dnn_sgd_rets.csv*: returns of the out of sample forward testing trading strategy based on dnn sgd prediction
+        - *dnn_adam*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_adam 
+        - *dnn_adam.csv*: results of dnn_adam cross sectional analysis
+        - *dnn_sgd*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd
+        - *dnn_sgd.csv*: results of dnn_sgd cross sectional analysis
+        - *drnnv2*: pickle file with cross_section object with all the results of the in sample cross sectional analysis using dnn_sgd
+        - *drnnv2.csv*: results of drnn cross sectional analysis
+        - *log_rets_drnn.csv*: returns of the out of sample forward testing trading strategy based on drnn prediction
+        - *rolling_dnn_adam_rets.csv*: returns of the out of sample forward testing trading strategy based on dnn adam prediction
+        - *rolling_dnn_sgd_rets.csv*: returns of the out of sample forward testing trading strategy based on dnn sgd prediction
