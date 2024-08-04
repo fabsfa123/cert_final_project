@@ -11,7 +11,7 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 
 # How to set up on Google Colab
 
-- 1. Click on https://githubtocolab.com/fabsfa123/cert_final_project.git
+- 1. Click on https://githubtocolab.com/fabsfa123/cert_final_project.git and run each of the steps below in separate cells. You can uncomment the specific cells in the jupyter notebook directly if easier.
 - 2. Clone the repository 
     ```bash
     !git clone https://github.com/fabsfa123/cert_final_project.git
