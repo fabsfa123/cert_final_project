@@ -1,5 +1,3 @@
-Ghe sboro!
-
 # CPF Final Project - Fabio Del Bo
 
 The repository contains all the required python and data files to run the CPF Final Project on **“Deep Learning methods to forecast price movements in S&P 500 Futures”** by Fabio Del Bo. The project is structured and documented such that a Jupiter Notebook is executable on Google Colab.
