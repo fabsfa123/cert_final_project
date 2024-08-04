@@ -9,22 +9,7 @@ Deep Learning techniques are assessed as signal generators for systematic tradin
 
 # How to set up on Google Colab
 
-- 1. Click on https://githubtocolab.com/fabsfa123/cert_final_project.git and run each of the steps below in separate cells. You can uncomment the specific cells in the jupyter notebook directly if easier.
-- 2. Clone the repository 
-    ```bash
-    !git clone https://github.com/fabsfa123/cert_final_project.git
-- 3. Install condacolab and ta-lib
-    ```bash
-    !pip install -q condacolab
-    import condacolab
-    condacolab.install()
-    !conda install -c conda-forge ta-lib
-- 4. pip install tensorflow (old version), boruta, plotly, and lime 
-    ```bash
-    !pip install tensorflow==2.12 boruta plotly lime
-- 5. if prompted to restart the kernel. proceed
-- 6. run the jupyter notebook
-
+Click on https://githubtocolab.com/fabsfa123/cert_final_project.git and run all (control + F9)
 
 # Documentation and Structure
 
