@@ -34,6 +34,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.ensemble import BaggingClassifier
 from sklearn.ensemble import RandomForestClassifier
 
+from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+from tensorflow.keras.regularizers import l1, l2
 from tensorflow.keras.layers import Dropout
 from tensorflow import keras
 from tensorflow.keras.preprocessing.sequence import TimeseriesGenerator
